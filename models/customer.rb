@@ -38,20 +38,20 @@ def tickets_bought()
   return result
 end
 
-def tickets ()
-  sql= "SELECT films.price  FROM films INNER JOIN tickets ON films.id = tickets.film_id WHERE customer_id= $1"
-  values=[@id]
-  prices= SqlRunner.run(sql, values)
-  tickets_data = prices.map { |price| Ticket.new (price)  }
-  return tickets_data[0]
-end
-
-
-def remaining_funds()
-  tickets = self.tickets()
-  tickets_prices = tickets.map{|price| tickets.price}
-  return @funds - ticket_price
-end
+# def tickets ()
+#   sql= "SELECT films.price  FROM films INNER JOIN tickets ON films.id = tickets.film_id WHERE customer_id= $1"
+#   values=[@id]
+#   prices= SqlRunner.run(sql, values)
+#   tickets_data = prices.map { |price| Ticket.new (price)  }
+#   return tickets_data[0]
+# end
+#
+#
+# def remaining_funds()
+#   tickets = self.tickets()
+#   tickets_prices = tickets.map{|price| tickets.price}
+#   return @funds - ticket_price
+# end
 
 
 

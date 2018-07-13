@@ -1,5 +1,6 @@
 DROP TABLE tickets;
 DROP TABLE films;
+DROP TABLE screenings;
 DROP TABLE customers;
 
 CREATE TABLE customers (
@@ -17,5 +18,11 @@ CREATE TABLE films (
 CREATE TABLE tickets (
   id SERIAL8 PRIMARY KEY,
   customer_id INT4 REFERENCES customers(id) ON DELETE CASCADE,
+  film_id INT4 REFERENCES films(id) ON DELETE CASCADE
+);
+
+CREATE TABLE screenings (
+  id SERIAL8 PRIMARY KEY,
+  screening VARCHAR (255),
   film_id INT4 REFERENCES films(id) ON DELETE CASCADE
 );
