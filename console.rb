@@ -56,6 +56,9 @@ ticket8.save()
 ticket9.save()
 ticket10.save()
 ticket11.save()
-#
+
+p ticket1.show_films()
+p ticket2.show_customers()
+
 # binding.pry
 # nil
