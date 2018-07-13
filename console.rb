@@ -4,9 +4,9 @@ require_relative('models/ticket')
 
 require('pry-byebug')
 
-Customer.delete_all()
+# Customer.delete_all()
 Film.delete_all()
-Ticket.delete_all()
+# Ticket.delete_all()
 
 
 customer1=Customer.new({'name' => 'Anna Maria', 'funds'=> 40})
@@ -17,6 +17,7 @@ customer2.save()
 customer3.save()
 customer1.name="Marianna Sabina"
 customer1.update
+
 #
 film1=Film.new({'title'=>'Coco', 'price'=>11})
 film2=Film.new({'title'=>'Mulan', 'price'=>12})
@@ -59,6 +60,6 @@ ticket11.save()
 
 p ticket1.show_films()
 p ticket2.show_customers()
-
+p customer2.tickets_bought()
 # binding.pry
 # nil
