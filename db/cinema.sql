@@ -1,7 +1,7 @@
-DROP TABLE tickets;
-DROP TABLE films;
 DROP TABLE screenings;
+DROP TABLE tickets;
 DROP TABLE customers;
+DROP TABLE films;
 
 CREATE TABLE customers (
   id SERIAL8 PRIMARY KEY,
@@ -23,6 +23,6 @@ CREATE TABLE tickets (
 
 CREATE TABLE screenings (
   id SERIAL8 PRIMARY KEY,
-  screening VARCHAR (255),
+  time VARCHAR(255),
   film_id INT4 REFERENCES films(id) ON DELETE CASCADE
 );

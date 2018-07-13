@@ -32,8 +32,8 @@ film5.save()
 film5.title="Beautiful Mind"
 film5.update()
 
-
-# #
+#
+# # #
 # #
 ticket1=Ticket.new({'customer_id'=>customer1.id, 'film_id'=> film1.id})
 ticket2=Ticket.new({'customer_id'=>customer1.id, 'film_id'=> film1.id})
@@ -57,11 +57,11 @@ ticket8.save()
 ticket9.save()
 ticket10.save()
 ticket11.save()
-
-p ticket1.show_films()
-p ticket2.show_customers()
-p customer2.tickets_bought()
-p film1.customers_seeing_film()
+#
+# p ticket1.show_films()
+# p ticket2.show_customers()
+# p customer2.tickets_bought()
+# p film1.customers_seeing_film()
 # p customer1.remaining_funds()
 # binding.pry
 # nil
