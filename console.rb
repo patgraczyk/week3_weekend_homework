@@ -61,5 +61,6 @@ ticket11.save()
 p ticket1.show_films()
 p ticket2.show_customers()
 p customer2.tickets_bought()
+p film1.customers_seeing_film()
 # binding.pry
 # nil

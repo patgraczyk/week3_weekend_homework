@@ -38,4 +38,6 @@ def tickets_bought()
   return result
 end
 
+
+
 end
