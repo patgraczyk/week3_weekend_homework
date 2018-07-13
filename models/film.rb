@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative('screening')
 
 class Film
 
@@ -13,7 +14,7 @@ end
 
 def save()
   sql = "INSERT INTO films (title, price) VALUES ($1, $2) RETURNING id"
-  values = [@title, @price ]
+  values = [@title, @price]
   film = SqlRunner.run(sql, values).first
   @id = film['id'].to_i
 end
@@ -30,12 +31,19 @@ def update()
   SqlRunner.run(sql, values)
 end
 
-def customers_seeing_film
+def customers_seeing_film()
   sql="SELECT customers.* FROM customers INNER JOIN tickets ON customers.id= tickets.customer_id
   WHERE film_id = $1"
   values=[@id]
   customers=SqlRunner.run(sql, values)
   result=customers.map { |customer| Customer.new(customer)}
+end
+
+def screening_time()
+  sql = "SELECT * FROM screenings WHERE film_id = $1"
+  values = [@id]
+  screening = SqlRunner.run(sql, values).first
+  return Screening.new(screening)
 end
 
 
