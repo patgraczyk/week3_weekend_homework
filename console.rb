@@ -4,10 +4,10 @@ require_relative('models/ticket')
 
 require('pry-byebug')
 
-Customer.delete_all()
-Film.delete_all()
-Ticket.delete_all()
-Screening.delete_all()
+# Customer.delete_all()
+# Film.delete_all()
+# Ticket.delete_all()
+# Screening.delete_all()
 
 
 customer1=Customer.new({'name' => 'Anna Maria', 'funds'=> 40})
@@ -17,8 +17,8 @@ customer1.save()
 customer2.save()
 customer3.save()
 customer1.name="Marianna Sabina"
-customer1.update
-customer1.delete
+# customer1.update
+# customer1.delete
 
 #
 film1=Film.new({'title'=>'Coco', 'price'=>11})
@@ -33,7 +33,7 @@ film4.save()
 film5.save()
 film5.title="Beautiful Mind"
 film5.update()
-film1.delete()
+# film1.delete()
 #
 screening1=Screening.new({'show_time' => '22:10', 'film_id'=> film1.id})
 screening2=Screening.new({'show_time' => '20:10', 'film_id'=> film2.id})
@@ -46,8 +46,8 @@ screening4.save()
 #
 # #
 ticket1=Ticket.new({'customer_id'=>customer1.id, 'film_id'=> film1.id, 'screening_id' => screening1.id})
-ticket2=Ticket.new({'customer_id'=>customer1.id, 'film_id'=> film1.id, 'screening_id' => screening2.id})
-ticket3=Ticket.new({'customer_id'=>customer3.id, 'film_id'=> film1.id, 'screening_id' => screening3.id})
+ticket2=Ticket.new({'customer_id'=>customer1.id, 'film_id'=> film1.id, 'screening_id' => screening1.id})
+ticket3=Ticket.new({'customer_id'=>customer3.id, 'film_id'=> film1.id, 'screening_id' => screening1.id})
 ticket4=Ticket.new({'customer_id'=>customer3.id, 'film_id'=> film3.id, 'screening_id' => screening4.id})
 ticket5=Ticket.new({'customer_id'=>customer2.id, 'film_id'=> film4.id, 'screening_id' => screening1.id})
 ticket6=Ticket.new({'customer_id'=>customer2.id, 'film_id'=> film5.id, 'screening_id' => screening2.id})
@@ -74,7 +74,11 @@ ticket11.save()
 # p film1.customers_seeing_film()
 # p customer1.remaining_funds()
 # p film1
-p film1.screening_time()
+p film1.most_popular_showtime_by_film()
 
 # binding.pry
 # nil
+
+
+# SELECT * FROM tickets INNER JOIN screenings ON screenings.id = tickets.screening_id WHERE screening_id =
+# ORDER BY show_time ASC

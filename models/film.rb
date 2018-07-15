@@ -52,12 +52,13 @@ def screening_time()
   return Screening.new(screening)
 end
 
-def most_popular_time()
-  sql ="SELECT * FROM tickets INNER JOIN screenings ON screenings.id=tickets.screening_id
-  WHERE film_id =$1 ASC"
+def most_popular_showtime_by_film()
+  sql ='SELECT * FROM tickets WHERE film_id = $1 ORDER BY screening_id'
   values=[@id]
-  screenings=SqlRunner.run(sql, values)
-  restul
+  screenings_by_film = SqlRunner.run(sql, values)
+  popular_screening = screenings_by_film.max_by{|screen|screenings_by_film.count(screen)}
+  return Screening.new(popular_screening)
 end
 
+# array.max_by { |i| array.count(i) }
 end #end of class

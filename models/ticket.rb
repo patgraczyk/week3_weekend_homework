@@ -43,9 +43,11 @@ class Ticket
     return Customer.new(customer)
   end
 
-  def delte()
-
-
+  def delete()
+    sql = "DELETE * FROM tickets WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
+
 
 end #end of class

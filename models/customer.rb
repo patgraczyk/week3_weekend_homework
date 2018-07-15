@@ -51,12 +51,12 @@ def tickets ()
   tickets_data = prices.map { |price| Ticket.new (price)  }
   return tickets_data[0]
 end
-
-def remaining_funds()
-  tickets = self.tickets()
-  tickets_prices = tickets.map{|price| tickets.price}
-  return @funds - ticket_price
-end
+# 
+# def remaining_funds()
+#   tickets = self.tickets()
+#   tickets_prices = tickets.map{|price| tickets.price}
+#   return @funds - ticket_price
+# end
 
 
 
