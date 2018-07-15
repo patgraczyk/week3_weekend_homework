@@ -35,10 +35,10 @@ film5.title="Beautiful Mind"
 film5.update()
 # film1.delete()
 #
-screening1=Screening.new({'show_time' => '22:10', 'film_id'=> film1.id})
-screening2=Screening.new({'show_time' => '20:10', 'film_id'=> film2.id})
-screening3=Screening.new({'show_time' => '19:10', 'film_id'=> film3.id})
-screening4=Screening.new({'show_time' => '21:10', 'film_id'=> film4.id})
+screening1=Screening.new({'show_time' => '22:10', 'film_id'=> film1.id, 'capacity' => 4})
+screening2=Screening.new({'show_time' => '20:10', 'film_id'=> film2.id, 'capacity' => 5})
+screening3=Screening.new({'show_time' => '19:10', 'film_id'=> film3.id, 'capacity' => 6})
+screening4=Screening.new({'show_time' => '21:10', 'film_id'=> film4.id, 'capacity' => 3})
 screening1.save()
 screening2.save()
 screening3.save()
@@ -74,6 +74,7 @@ ticket11.save()
 # p film1.customers_seeing_film()
 # p customer1.remaining_funds()
 # p film1
+# p film2.screening_time
 p film1.most_popular_showtime_by_film()
 
 # binding.pry

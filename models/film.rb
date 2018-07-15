@@ -56,8 +56,8 @@ def most_popular_showtime_by_film()
   sql ='SELECT * FROM tickets WHERE film_id = $1 ORDER BY screening_id'
   values=[@id]
   screenings_by_film = SqlRunner.run(sql, values)
-  popular_screening = screenings_by_film.max_by{|screen|screenings_by_film.count(screen)}
-  return Screening.new(popular_screening)
+  popular_screening = screenings_by_film.uniq.max_by{|screen|screenings_by_film.count(screen)}
+  return Screening.new(popular_screening) #returns the most frequent value only
 end
 
 # array.max_by { |i| array.count(i) }
