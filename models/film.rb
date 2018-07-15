@@ -31,6 +31,12 @@ def update()
   SqlRunner.run(sql, values)
 end
 
+def delete()
+  sql="DELETE FROM films WHERE id=$1"
+  values=[@id]
+  SqlRunner.run(sql, values)
+end
+
 def customers_seeing_film()
   sql="SELECT customers.* FROM customers INNER JOIN tickets ON customers.id= tickets.customer_id
   WHERE film_id = $1"
@@ -46,5 +52,12 @@ def screening_time()
   return Screening.new(screening)
 end
 
+def most_popular_time()
+  sql ="SELECT * FROM tickets INNER JOIN screenings ON screenings.id=tickets.screening_id
+  WHERE film_id =$1 ASC"
+  values=[@id]
+  screenings=SqlRunner.run(sql, values)
+  restul
+end
 
 end #end of class

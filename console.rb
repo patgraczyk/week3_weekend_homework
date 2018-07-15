@@ -18,6 +18,7 @@ customer2.save()
 customer3.save()
 customer1.name="Marianna Sabina"
 customer1.update
+customer1.delete
 
 #
 film1=Film.new({'title'=>'Coco', 'price'=>11})
@@ -32,6 +33,7 @@ film4.save()
 film5.save()
 film5.title="Beautiful Mind"
 film5.update()
+film1.delete()
 #
 screening1=Screening.new({'show_time' => '22:10', 'film_id'=> film1.id})
 screening2=Screening.new({'show_time' => '20:10', 'film_id'=> film2.id})
@@ -73,5 +75,6 @@ ticket11.save()
 # p customer1.remaining_funds()
 # p film1
 p film1.screening_time()
+
 # binding.pry
 # nil

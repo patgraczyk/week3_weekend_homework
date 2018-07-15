@@ -43,4 +43,9 @@ class Ticket
     return Customer.new(customer)
   end
 
+  def delte()
+
+
+  end
+
 end #end of class
